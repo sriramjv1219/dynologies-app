@@ -22,7 +22,7 @@ import {
 } from '@angular/material';
 @NgModule({
   imports: [
-    CommonModule,
+     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     MatButtonModule,

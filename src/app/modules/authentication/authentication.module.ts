@@ -10,7 +10,8 @@ import {
   MatFormFieldModule,
   MatTooltipModule,
   MatSelectModule,
-  MatCardModule
+  MatCardModule,
+  MatIconModule
 } from '@angular/material';
 
 import { LoginComponent } from './views/login/login.component';
@@ -20,11 +21,13 @@ import { AuthenticationRoutes } from './authentication.routing';
   imports: [
     CommonModule,
     RouterModule.forChild(AuthenticationRoutes),
+    ReactiveFormsModule,
     FormsModule,
     MatButtonModule,
     MatRippleModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     MatSelectModule,
     MatCardModule,
     MatTooltipModule,

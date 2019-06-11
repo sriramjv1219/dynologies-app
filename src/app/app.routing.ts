@@ -9,7 +9,7 @@ import { AuthenticationComponent } from './modules/authentication/authentication
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'authentication/login',
     pathMatch: 'full',
   }, {
     path: '',

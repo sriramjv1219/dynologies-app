@@ -1,30 +1,41 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row no-gutter">
     <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
     <div class="col-md-8 col-lg-6">
       <div class="login d-flex align-items-center py-5">
         <div class="container">
           <div class="row">
-            <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4">Welcome back!</h3>
+            <div class="col-md-9 col-lg-8 mx-auto card card-stats">
+              <h3 class="login-heading mb-4">Login to Dynologies Server</h3>
               <form>
                 <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                  <label for="inputEmail">Email address</label>
-                </div>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" (keyup)="onChangeEmailIdField(userEmailId,userPassword)"
+                      required [(ngModel)]="userEmailId" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
 
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                  <label for="inputPassword">Password</label>
+                  <mat-form-field>
+                    <input matInput required placeholder="Enter your password"
+                      (keyup)="onChangePasswordField(userEmailId,userPassword)" [(ngModel)]="userPassword"
+                      [formControl]="passwordFormControl" [type]="!hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hide">
+                      <mat-icon>{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="passwordFormControl.hasError('required')">
+                      Password is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
                 </div>
-
-                <div class="custom-control custom-checkbox mb-3">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1">
-                  <label class="custom-control-label" for="customCheck1">Remember password</label>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
-                <div class="text-center">
-                  <a class="small" href="#">Forgot password?</a></div>
+                <button (click)="onLoginButtonClick(userEmailId,userPassword)" [disabled]="isLoginButtonDisabled"
+                  mat-raised-button color="primary">SIGN IN</button>
+                <div>
+                  <a class="small" href="javascript:void(0)">Forgot password?</a></div>
               </form>
             </div>
           </div>
@@ -32,4 +43,37 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+
+<h3 class="login-heading mb-4">Login to Dynologies Server</h3>
+<form>
+  <div class="form-label-group">
+    <mat-form-field class="example-full-width">
+      <input matInput autocomplete="off" placeholder="Email" (keyup)="onChangeEmailIdField(userEmailId,userPassword)" required
+        [(ngModel)]="userEmailId" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="form-label-group">
+    <mat-form-field>
+      <input matInput required placeholder="Enter your password" autocomplete="off"
+        (keyup)="onChangePasswordField(userEmailId,userPassword)" [(ngModel)]="userPassword"
+        [formControl]="passwordFormControl" [type]="!hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <button (click)="onLoginButtonClick(userEmailId,userPassword)" [disabled]="isLoginButtonDisabled" mat-raised-button
+    color="primary">SIGN IN</button>
+  <div>
+    <a class="small" href="javascript:void(0)">Forgot password?</a></div>
+</form>

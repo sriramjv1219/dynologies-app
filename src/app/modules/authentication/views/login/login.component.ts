@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   emailFormControl = new FormControl('', [
     Validators.required,
-    Validators.email,
+    //Validators.email,
   ]);
 
   passwordFormControl = new FormControl('', [

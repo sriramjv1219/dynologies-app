@@ -50,11 +50,11 @@
 <form>
   <div class="form-label-group">
     <mat-form-field class="example-full-width">
-      <input matInput autocomplete="off" placeholder="Email" (keyup)="onChangeEmailIdField(userEmailId,userPassword)" required
+      <input matInput autocomplete="off" placeholder="'Username'" (keyup)="onChangeEmailIdField(userEmailId,userPassword)" required
         [(ngModel)]="userEmailId" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
 
       <mat-error *ngIf="emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
+        Username is <strong>required</strong>
       </mat-error>
     </mat-form-field>
   </div>

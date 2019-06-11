@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './modules/admin-layout/admin-layout.component';
 import { AuthenticationComponent } from './modules/authentication/authentication.component';
+import { AuthGuard } from './auth-guard';
 
 @NgModule({
   imports: [
@@ -31,7 +32,7 @@ import { AuthenticationComponent } from './modules/authentication/authentication
     AdminLayoutComponent,
     AuthenticationComponent
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

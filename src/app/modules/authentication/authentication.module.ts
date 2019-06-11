@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,9 +33,16 @@ import { AuthenticationRoutes } from './authentication.routing';
     MatTooltipModule,
   ],
   declarations: [
-    LoginComponent    
+    LoginComponent
   ]
 })
 
 
-export class AuthenticationModule {}
+export class AuthenticationModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: AuthenticationModule,
+      providers: [AuthenticationModule]
+    }
+  }
+}

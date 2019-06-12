@@ -3,6 +3,7 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../authentication.service';
+import { LoginRequestModel } from 'app/models/requests/LoginRequestModel';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
-    if (sessionStorage.getItem('userToken')) {
+    if (sessionStorage.getItem('currentUser')) {
       this.router.navigate(['dashboard']);
     }
   }
@@ -65,8 +66,24 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginButtonClick(userName, password) {
-    sessionStorage.setItem('userToken', 'tokenValue');
-    this.router.navigate(['dashboard']);
+    let requestObj: LoginRequestModel = {
+      UserName: userName,
+      Password: password,
+      Client_Id: "d449b19980784a7d837bfc924b00e084",
+      Grant_Type: "password"
+    };
+    //this.router.navigate(['dashboard']);
+    this.authenticationService.login(requestObj).subscribe(item => {
+
+      console.log(item);
+      sessionStorage.setItem('currentUser', JSON.stringify(item));
+
+      this.router.navigate(['dashboard']);
+    }, error => {
+      console.log(error);
+
+    });
+    // this.router.navigate(['dashboard']);
   }
 
 }

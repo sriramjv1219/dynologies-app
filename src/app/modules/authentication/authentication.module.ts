@@ -16,6 +16,9 @@ import {
 
 import { LoginComponent } from './views/login/login.component';
 import { AuthenticationRoutes } from './authentication.routing';
+import { AuthenticationService } from './authentication.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [
@@ -23,6 +26,8 @@ import { AuthenticationRoutes } from './authentication.routing';
     RouterModule.forChild(AuthenticationRoutes),
     ReactiveFormsModule,
     FormsModule,
+    HttpModule,
+    HttpClientModule,
     MatButtonModule,
     MatRippleModule,
     MatFormFieldModule,
@@ -34,7 +39,7 @@ import { AuthenticationRoutes } from './authentication.routing';
   ],
   declarations: [
     LoginComponent
-  ]
+  ],
 })
 
 
@@ -42,7 +47,7 @@ export class AuthenticationModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: AuthenticationModule,
-      providers: [AuthenticationModule]
+      providers: [AuthenticationService]
     }
   }
 }

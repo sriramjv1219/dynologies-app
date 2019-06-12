@@ -74,6 +74,7 @@
   </div>
   <button (click)="onLoginButtonClick(userEmailId,userPassword)" [disabled]="isLoginButtonDisabled" mat-raised-button
     color="primary">SIGN IN</button>
+    <mat-progress-bar *ngIf="displayProgressBar" mode="indeterminate"></mat-progress-bar>
   <div>
     <a class="small" href="javascript:void(0)">Forgot password?</a></div>
 </form>

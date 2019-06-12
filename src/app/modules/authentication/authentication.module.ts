@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 import {
   MatButtonModule,
   MatInputModule,
@@ -11,6 +12,7 @@ import {
   MatTooltipModule,
   MatSelectModule,
   MatCardModule,
+  MatProgressSpinnerModule,
   MatIconModule
 } from '@angular/material';
 
@@ -19,6 +21,7 @@ import { AuthenticationRoutes } from './authentication.routing';
 import { AuthenticationService } from './authentication.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -31,10 +34,12 @@ import { HttpModule } from '@angular/http';
     MatButtonModule,
     MatRippleModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
     MatInputModule,
     MatIconModule,
     MatSelectModule,
     MatCardModule,
+    MatProgressBarModule,
     MatTooltipModule,
   ],
   declarations: [

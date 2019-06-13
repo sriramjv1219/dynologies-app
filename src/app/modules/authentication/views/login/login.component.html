@@ -50,8 +50,9 @@
 <form>
   <div class="form-label-group">
     <mat-form-field class="example-full-width">
-      <input matInput autocomplete="off" placeholder="'Username'" (keyup)="onChangeEmailIdField(userEmailId,userPassword)" required
-        [(ngModel)]="userEmailId" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+      <input matInput autocomplete="off" placeholder="'Username'"
+        (keyup)="onChangeEmailIdField(userEmailId,userPassword)" required [(ngModel)]="userEmailId"
+        [formControl]="emailFormControl" [errorStateMatcher]="matcher">
 
       <mat-error *ngIf="emailFormControl.hasError('required')">
         Username is <strong>required</strong>
@@ -74,7 +75,12 @@
   </div>
   <button (click)="onLoginButtonClick(userEmailId,userPassword)" [disabled]="isLoginButtonDisabled" mat-raised-button
     color="primary">SIGN IN</button>
-    <mat-progress-bar *ngIf="displayProgressBar" mode="indeterminate"></mat-progress-bar>
+  <mat-progress-bar *ngIf="displayProgressBar" mode="indeterminate"></mat-progress-bar>
+
+
   <div>
-    <a class="small" href="javascript:void(0)">Forgot password?</a></div>
+    <label *ngIf="errorMessage !== null && errorMessage !== undefined" class="text-danger">{{errorMessage}}</label>
+    <br />
+    <a class="small" href="javascript:void(0)">Forgot password?</a>
+  </div>
 </form>

@@ -4,7 +4,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../authentication.service';
 import { LoginRequestModel } from 'app/models/requests/LoginRequestModel';
-//declare var $: any;
+import { HttpErrorResponse } from '@angular/common/http';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
   isLoginButtonDisabled: boolean = true;
   hide: boolean = false;
   displayProgressBar: boolean = false;
+  errorMessage: string;
 
   constructor(private router: Router, private authenticationService: AuthenticationService) { }
 
@@ -68,29 +69,36 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginButtonClick(userName, password) {
+
     let requestObj: LoginRequestModel = {
       UserName: userName,
       Password: password,
       Client_Id: "d449b19980784a7d837bfc924b00e084",
       Grant_Type: "password"
     };
+
     this.displayProgressBar = true;
-    //this.router.navigate(['dashboard']);
-    this.authenticationService.login(requestObj).subscribe(item => {
-      // $.notify({
-      //   icon: "notifications",
-      //   message: "Welcome to <b>Material Dashboard</b> - a beautiful freebie for every web developer."
+    this.errorMessage = null;
 
-      // });
-      console.log(item);
-      sessionStorage.setItem('currentUser', JSON.stringify(item));
-
+    this.authenticationService.login(requestObj).subscribe(loginResponse => {
+      
+      console.log(loginResponse);
+      sessionStorage.setItem('currentUser', JSON.stringify(loginResponse));
       this.router.navigate(['dashboard']);
+
     }, error => {
+
       console.log(error);
-
+      if (error instanceof HttpErrorResponse) {
+        if (error.status == 400) {
+          let errorObj = JSON.parse(error.error.error);
+          console.log(errorObj)
+          this.errorMessage = errorObj['error_description'];
+          //access_failed_count
+          //is_locked
+          this.displayProgressBar = false;
+        }
+      }
     });
-    // this.router.navigate(['dashboard']);
   }
-
 }

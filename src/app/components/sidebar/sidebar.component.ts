@@ -21,11 +21,11 @@ export const ROUTES_PREVIOUS_VERSION: RouteInfo[] = [
 export const ROUTES: RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
   { path: '/table-list', title: 'Add Users',  icon:'person', class: '' },
-  { path: '/in-progress8', title: 'Screen 2',  icon:'autorenew', class: '' },
-  { path: '/in-progress7', title: 'Screen 3',  icon:'extension', class: '' },
-  { path: '/in-progress1', title: 'Screen 4',  icon:'done_outline', class: '' },
-  { path: '/in-progress2', title: 'Screen 5',  icon:'location_on', class: '' },
-  { path: '/in-progress3', title: 'Screen 6',  icon:'hourglass_empty', class: '' },
+  // { path: '/in-progress8', title: 'Screen 2',  icon:'autorenew', class: '' },
+  // { path: '/in-progress7', title: 'Screen 3',  icon:'extension', class: '' },
+  // { path: '/in-progress1', title: 'Screen 4',  icon:'done_outline', class: '' },
+  // { path: '/in-progress2', title: 'Screen 5',  icon:'location_on', class: '' },
+  // { path: '/in-progress3', title: 'Screen 6',  icon:'hourglass_empty', class: '' },
   { path: '/in-progress4', title: 'Any Other Screen',  icon:'track_changes', class: 'active-pro' },
 ];
 

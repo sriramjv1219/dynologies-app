@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   userEmailId: string;
   userPassword: string;
   isLoginButtonDisabled: boolean = true;
-  hide: boolean = false;
+  passwordTextDisplayStatus: boolean = false;
   displayProgressBar: boolean = false;
   errorMessage: string;
 
@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
     this.errorMessage = null;
 
     this.authenticationService.login(requestObj).subscribe(loginResponse => {
-      
+
       console.log(loginResponse);
       sessionStorage.setItem('currentUser', JSON.stringify(loginResponse));
       this.router.navigate(['dashboard']);

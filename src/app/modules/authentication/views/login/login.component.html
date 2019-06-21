@@ -46,7 +46,7 @@
 </div> -->
 
 
-<h3 class="login-heading mb-4">Login to Dynologies Server</h3>
+<h3 class="login-heading mb-4">Login to Dynologies</h3>
 <form>
   <div class="form-label-group">
     <mat-form-field class="example-full-width">
@@ -63,10 +63,10 @@
     <mat-form-field>
       <input matInput required placeholder="Enter your password" autocomplete="off"
         (keyup)="onChangePasswordField(userEmailId,userPassword)" [(ngModel)]="userPassword"
-        [formControl]="passwordFormControl" [type]="!hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide">
-        <mat-icon>{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        [formControl]="passwordFormControl" [type]="!passwordTextDisplayStatus ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="passwordTextDisplayStatus = !passwordTextDisplayStatus" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="passwordTextDisplayStatus">
+        <mat-icon>{{!passwordTextDisplayStatus ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
       <mat-error *ngIf="passwordFormControl.hasError('required')">
         Password is <strong>required</strong>

@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   emailFormControl = new FormControl('', [
     Validators.required,
-    //Validators.email,
+    // Validators.email,
   ]);
 
   passwordFormControl = new FormControl('', [
@@ -58,23 +58,21 @@ export class LoginComponent implements OnInit {
     if (userName && this.emailFormControl.valid) {
       if (password) {
         this.isLoginButtonDisabled = false;
-      }
-      else {
+      } else {
         this.isLoginButtonDisabled = true;
       }
-    }
-    else {
+    } else {
       this.isLoginButtonDisabled = true;
     }
   }
 
   onLoginButtonClick(userName, password) {
 
-    let requestObj: LoginRequestModel = {
+    const requestObj: LoginRequestModel = {
       UserName: userName,
       Password: password,
-      Client_Id: "d449b19980784a7d837bfc924b00e084",
-      Grant_Type: "password"
+      Client_Id: 'd449b19980784a7d837bfc924b00e084',
+      Grant_Type: 'password'
     };
 
     this.displayProgressBar = true;
@@ -90,12 +88,12 @@ export class LoginComponent implements OnInit {
 
       console.log(error);
       if (error instanceof HttpErrorResponse) {
-        if (error.status == 400) {
-          let errorObj = JSON.parse(error.error.error);
+        if (error.status === 400) {
+          const errorObj = JSON.parse(error.error.error);
           console.log(errorObj)
           this.errorMessage = errorObj['error_description'];
-          //access_failed_count
-          //is_locked
+          // access_failed_count
+          // is_locked
           this.displayProgressBar = false;
         }
       }

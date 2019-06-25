@@ -4,6 +4,12 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { Router } from '@angular/router';
 declare var $: any;
 
+export interface Programs {
+    value: string;
+    id: number;
+    disabled: boolean;
+}
+
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
@@ -15,6 +21,16 @@ export class NavbarComponent implements OnInit {
     mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+
+    selectedProgram: string = "Select Program";
+
+    foods: Programs[] = [
+        { value: '', id: -1, disabled: true },
+        { value: 'Select a Program', id: 0, disabled: true },
+        { value: 'Program 1', id: 1, disabled: false },
+        { value: 'Program 2', id: 2, disabled: false },
+        { value: 'Program 3', id: 3, disabled: false }
+    ];
 
     constructor(location: Location, private element: ElementRef, private router: Router) {
         this.location = location;
@@ -124,7 +140,7 @@ export class NavbarComponent implements OnInit {
         return 'Dashboard';
     }
 
-    onUserLogout() {        
+    onUserLogout() {
         const type = 'success';
         const from = 'bottom';
         const align = 'right';

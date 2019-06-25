@@ -21,8 +21,17 @@
                                   </mat-form-field>
                               </div>
                               <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
+                                  <!-- <mat-form-field class="example-full-width">
                                     <input matInput placeholder="Email address" type="email">
+                                  </mat-form-field> -->
+
+                                  <mat-form-field>
+                                      <mat-label>Programs</mat-label>
+                                      <mat-select [(ngModel)]="selectedProgram" name="food">
+                                          <mat-option *ngFor="let food of foods" [value]="food.value">
+                                              {{food.viewValue}}
+                                          </mat-option>
+                                      </mat-select>
                                   </mat-form-field>
                               </div>
                           </div>

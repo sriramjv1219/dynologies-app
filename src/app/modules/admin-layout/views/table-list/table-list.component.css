@@ -1,0 +1,13 @@
+.example-container {
+    max-height: 800px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  

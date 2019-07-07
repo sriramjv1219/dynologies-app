@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>New Client</h1>
+<div mat-dialog-content>
+  <div class="example-container">
+
+    <mat-form-field>
+      <input matInput placeholder="Client Name" [formControl]="clientNameFormControl">
+      <mat-error *ngIf="clientNameFormControl.hasError('required')">
+        Client Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Description"></textarea>
+    </mat-form-field>
+
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="btn btn-default" (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button [mat-dialog-close]="data.animal" cdkFocusInitial class="btn btn-success">Save</button>
+</div>

@@ -11,6 +11,8 @@ import { IconsComponent } from './views/icons/icons.component';
 import { MapsComponent } from './views/maps/maps.component';
 import { NotificationsComponent } from './views/notifications/notifications.component';
 import { UpgradeComponent } from './views/upgrade/upgrade.component';
+import { AddUserDialogComponent } from './views/modal-dialogs/add-user-dialog/add-user-dialog.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import {
   MatButtonModule,
@@ -18,18 +20,31 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
+  MatPaginatorModule,
+  MatTableModule,
+  MatSortModule,
+  MatDialogModule,
+  MAT_DIALOG_DEFAULT_OPTIONS
 } from '@angular/material';
+import { AddProgramDialogComponent } from './views/modal-dialogs/add-program-dialog/add-program-dialog.component';
+import { AddClientDialogComponent } from './views/modal-dialogs/add-client-dialog/add-client-dialog.component';
+
 @NgModule({
   imports: [
-     CommonModule,
+    CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
+    ReactiveFormsModule,
     FormsModule,
     MatButtonModule,
     MatRippleModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
     MatTooltipModule,
   ],
   declarations: [
@@ -41,7 +56,19 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    AddUserDialogComponent,
+    AddProgramDialogComponent,
+    AddClientDialogComponent,
+  ],
+  providers: [
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true, disableClose: true, width: '350px' } },
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+  ],
+  entryComponents: [
+    AddUserDialogComponent,
+    AddProgramDialogComponent,
+    AddClientDialogComponent
   ]
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }

@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    selectedProgram: string = "Select Program";
+    selectedProgram: string;
 
     foods: Programs[] = [
         { value: '', id: -1, disabled: true },

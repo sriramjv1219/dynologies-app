@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>New Program</h1>
+<div mat-dialog-content>
+  <div class="example-container">
+
+    <mat-form-field>
+      <mat-select placeholder="Client Selection" [(ngModel)]="selectedClientValue">
+        <mat-option value="Client 1">Client 1</mat-option>
+        <mat-option value="Client 2">Client 2</mat-option>
+        <mat-option value="Client 3">Client 3</mat-option>
+        <mat-option value="Client 4">Client 4</mat-option>
+      </mat-select>
+
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Program Name" [(ngModel)]="programNameValue" [formControl]="programNameFormControl">
+      <mat-error *ngIf="programNameFormControl.hasError('required')">
+        Program Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput [(ngModel)]="programNameDescription" placeholder="Description"></textarea>
+    </mat-form-field>
+
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="btn btn-default" (click)="onCancelClick()">Cancel</button>
+
+  <button mat-raised-button [mat-dialog-close] class="btn btn-success" (click)="addProgram()"
+    [disabled]="programNameValue === undefined || selectedClientValue === undefined || programNameFormControl.hasError('required')"
+    cdkFocusInitial>Save</button>
+</div>

@@ -55,7 +55,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'user-profile', component: UserProfileComponent },
     { path: 'table-list', component: TableListComponent },
-    { path: 'typography', component: TypographyComponent },
+    { path: 'program-admin', component: TypographyComponent }, //change component to a new component.
     { path: 'icons', component: IconsComponent },
     { path: 'maps', component: MapsComponent },
     { path: 'notifications', component: NotificationsComponent },

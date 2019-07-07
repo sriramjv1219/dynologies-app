@@ -21,7 +21,7 @@ export const ROUTES_PREVIOUS_VERSION: RouteInfo[] = [
 export const ROUTES: RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
   { path: '/table-list', title: 'Add Users',  icon: 'person', class: '' },
-  { path: '/in-progress4', title: 'Program Admin',  icon: 'autorenew', class: '' },
+  { path: '/program-admin', title: 'Program Admin',  icon: 'autorenew', class: '' },
   { path: '/in-progress5', title: 'User Administration',  icon: 'extension', class: '' },
   { path: '/in-progress3', title: 'Manage Campaign',  icon: 'done_outline', class: '' },
   // { path: '/in-progress2', title: 'Screen 5',  icon:'location_on', class: '' },

@@ -26,13 +26,13 @@
                 <form>
 
                     <mat-form-field>
-                        <mat-label *ngIf="!selectedProgram">Programs</mat-label>
+                        <mat-label *ngIf="selectedProgram">Programs</mat-label>
                         <mat-select [disableOptionCentering]='true' [(ngModel)]="selectedProgram" name="food">
                             <mat-option *ngFor="let food of foods" [disabled]='food.disabled' [value]="food.id">
                                 {{food.value}}
                             </mat-option>
                         </mat-select>
-                        <!-- <mat-hint *ngIf="selectedProgram">Select Program</mat-hint> -->
+                        <mat-hint *ngIf="!selectedProgram">Select Program</mat-hint>
                     </mat-form-field>
                                     
                 </form>

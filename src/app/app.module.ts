@@ -14,12 +14,14 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './modules/admin-layout/admin-layout.component';
 import { AuthenticationComponent } from './modules/authentication/authentication.component';
 import { AuthGuard } from './auth-guard';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
